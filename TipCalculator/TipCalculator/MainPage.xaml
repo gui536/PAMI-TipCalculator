@@ -4,76 +4,79 @@
              x:Class="TipCalculator.MainPage">
 
     <ScrollView>
-        <VerticalStackLayout
-            Padding="10"
-            Spacing="10"
-            HorizontalOptions="CenterAndExpand">
+        <Grid RowDefinitions="Auto, Auto, Auto, *, Auto, Auto, Auto"
+          ColumnDefinitions="*, *"
+          Padding="40">
 
             <Label
+                VerticalOptions="Center" Grid.Row="0" Grid.Column="0"
                 Text="Valor da gorjeta"
-                Style="{StaticResource Headline}"
                 SemanticProperties.HeadingLevel="Level1" />
 
             <Entry
+                VerticalOptions="Center" Grid.Row="0" Grid.Column="1"
                 x:Name="ValueEntry"
                 Text="0"
                 Placeholder="Digite o valor do pedido"/>
 
-            <HorizontalStackLayout Spacing="15">
-                <Label Text="Tip:"/>
-                <Label Text="0.00" x:Name="LabelTipValue" />
-            </HorizontalStackLayout>
+            <Label Text="Tip:" VerticalOptions="Center" Grid.Row="1" Grid.Column="0"/>
+            <Label Text="0.00" x:Name="LabelTipValue" VerticalOptions="Center" Grid.Row="1" Grid.Column="1"/>
 
-            <HorizontalStackLayout Spacing="15">
-                <Label Text="Total:"/>
-                <Label Text="0.00" x:Name="LabelTotalValue"/>
-            </HorizontalStackLayout>
 
-            <HorizontalStackLayout Spacing="15">
-                <Label Text="Tip Percentage:"/>
-                <Label Text="0%" x:Name="LabelPercentageValue"/>
-            </HorizontalStackLayout>
+            <Label Text="Total:" VerticalOptions="Center" Grid.Row="2" Grid.Column="0"/>
+            <Label Text="0.00" x:Name="LabelTotalValue" VerticalOptions="Center" Grid.Row="2" Grid.Column="1"/>
+
+
+            <Label Text="Tip Percentage:" VerticalOptions="End" Grid.Row="3" Grid.Column="0"/>
+            <Label Text="0%" x:Name="LabelPercentageValue" VerticalOptions="End" Grid.Row="3" Grid.Column="1"/>
 
             <Slider
                 x:Name="SliderTipPercent"
                 Minimum="0"
                 Maximum="100"
-                ValueChanged="SliderTipPercent_ValueChanged"/>
+                ValueChanged="SliderTipPercent_ValueChanged"
+                Grid.Row="4"
+                Grid.Column="0"
+                Grid.ColumnSpan="2"/>
 
-            <HorizontalStackLayout Spacing="15"
-                                   >
-                <Grid>
-                    <Button
-                        x:Name="Button15Percent"
-                        Text="15%" 
-                        HorizontalOptions="FillAndExpand" 
-                        Clicked="OnButton15PercentClicked"/>
+            <Button
+                x:Name="Button15Percent"
+                Text="15%" 
+                HorizontalOptions="FillAndExpand" 
+                Clicked="OnButton15PercentClicked"
+                Margin="5"
+                Grid.Row="5"
+                Grid.Column="0"/>
 
-                    <Button
-                        x:Name="Button20Percent"
-                        Text="20%" 
-                        HorizontalOptions="FillAndExpand"
-                        Clicked="OnButton20PercentClicked"/>
-                </Grid>
+            <Button
+                x:Name="Button20Percent"
+                Text="20%" 
+                HorizontalOptions="FillAndExpand"
+                Clicked="OnButton20PercentClicked"
+                Margin="5"
+                Grid.Row="5"
+                Grid.Column="1"/>
 
-            </HorizontalStackLayout>
 
-            <HorizontalStackLayout Spacing="15">
-                <Button
+            <Button
                 x:Name="ButtonRoundDown"
                 Text="Arredondar para baixo" 
                 HorizontalOptions="EndAndExpand"
                 Clicked="OnButtonRoundDownClicked"
-                  />
+                Margin="5"
+                Grid.Row="6"
+                Grid.Column="0"/>
 
-                <Button
+            <Button
                 x:Name="ButtonRoundUp"
                 Text="Arredondar para cima" 
                 HorizontalOptions="FillAndExpand"
-                Clicked="OnButtonRoundUpClicked"/>
+                Clicked="OnButtonRoundUpClicked"
+                Margin="5"
+                Grid.Row="6"
+                Grid.Column="1"/>
 
-            </HorizontalStackLayout>
-        </VerticalStackLayout>
+        </Grid>
     </ScrollView>
 
 </ContentPage>
