@@ -1,4 +1,8 @@
-﻿namespace TipCalculator
+﻿using System.Runtime.Intrinsics.Arm;
+using System.Runtime.Serialization;
+using System.Security.Cryptography;
+
+namespace TipCalculator
 {
     public partial class MainPage : ContentPage
     {
@@ -10,7 +14,7 @@
 
         private void SliderTipPercent_ValueChanged(object sender, ValueChangedEventArgs e)
         {
-            LabelPercentageValue.Text = Math.Round(SliderTipPercent.Value).ToString();
+            LabelPercentageValue.Text = $"{Math.Round(SliderTipPercent.Value).ToString()}%";
         }
 
         private void OnButton15PercentClicked(object sender, EventArgs e)
@@ -31,8 +35,9 @@
             double amount = Convert.ToDouble(ValueEntry.Text.ToString());
             double totalValue = roundedResult + amount;
             // exibir a gorjeta
-            LabelTipValue.Text = roundedResult.ToString();
-            LabelTotalValue.Text = totalValue.ToString();
+            LabelTipValue.Text = roundedResult.ToString("C2");
+            LabelTotalValue.Text = totalValue.ToString("C2");
+            
         }
 
         private void OnButtonRoundUpClicked(object sender, EventArgs e)
@@ -43,8 +48,8 @@
             double amount = Convert.ToDouble(ValueEntry.Text.ToString());
             double totalValue = roundedResult + amount;
             // exibir a gorjeta
-            LabelTipValue.Text = roundedResult.ToString();
-            LabelTotalValue.Text = totalValue.ToString();
+            LabelTipValue.Text = roundedResult.ToString("C2");
+            LabelTotalValue.Text = totalValue.ToString("C2");
         }
 
         private double CalculateTip()

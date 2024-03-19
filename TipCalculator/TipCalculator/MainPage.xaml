@@ -5,8 +5,9 @@
 
     <ScrollView>
         <VerticalStackLayout
-            Padding="10,0"
-            Spacing="10">
+            Padding="10"
+            Spacing="10"
+            HorizontalOptions="CenterAndExpand">
 
             <Label
                 Text="Valor da gorjeta"
@@ -15,50 +16,63 @@
 
             <Entry
                 x:Name="ValueEntry"
+                Text="0"
                 Placeholder="Digite o valor do pedido"/>
 
-            <Label Text="Tip:"/>
-            <Label Text="0.00" x:Name="LabelTipValue" />
+            <HorizontalStackLayout Spacing="15">
+                <Label Text="Tip:"/>
+                <Label Text="0.00" x:Name="LabelTipValue" />
+            </HorizontalStackLayout>
 
-            <Label Text="Total:"/>
-            <Label Text="0.00" x:Name="LabelTotalValue"/>
+            <HorizontalStackLayout Spacing="15">
+                <Label Text="Total:"/>
+                <Label Text="0.00" x:Name="LabelTotalValue"/>
+            </HorizontalStackLayout>
 
-            <Label Text="Tip Percentage:"/>
-            <Label Text="0%" x:Name="LabelPercentageValue"/>
+            <HorizontalStackLayout Spacing="15">
+                <Label Text="Tip Percentage:"/>
+                <Label Text="0%" x:Name="LabelPercentageValue"/>
+            </HorizontalStackLayout>
 
             <Slider
                 x:Name="SliderTipPercent"
                 Minimum="0"
                 Maximum="100"
-                ValueChanged="SliderTipPercent_ValueChanged"
-                />
+                ValueChanged="SliderTipPercent_ValueChanged"/>
 
+            <HorizontalStackLayout Spacing="15"
+                                   >
+                <Grid>
+                    <Button
+                        x:Name="Button15Percent"
+                        Text="15%" 
+                        HorizontalOptions="FillAndExpand" 
+                        Clicked="OnButton15PercentClicked"/>
 
-            <Button
-                x:Name="Button15Percent"
-                Text="15%" 
-                HorizontalOptions="Fill" 
-                Clicked="OnButton15PercentClicked"
-                />
+                    <Button
+                        x:Name="Button20Percent"
+                        Text="20%" 
+                        HorizontalOptions="FillAndExpand"
+                        Clicked="OnButton20PercentClicked"/>
+                </Grid>
 
-            <Button
-                x:Name="Button20Percent"
-                Text="20%" 
-                HorizontalOptions="Fill"
-                Clicked="OnButton20PercentClicked"/>
+            </HorizontalStackLayout>
 
-            <Button
+            <HorizontalStackLayout Spacing="15">
+                <Button
                 x:Name="ButtonRoundDown"
                 Text="Arredondar para baixo" 
-                HorizontalOptions="Fill"
-                Clicked="OnButtonRoundDownClicked"/>
+                HorizontalOptions="EndAndExpand"
+                Clicked="OnButtonRoundDownClicked"
+                  />
 
-            <Button
+                <Button
                 x:Name="ButtonRoundUp"
                 Text="Arredondar para cima" 
-                HorizontalOptions="Fill"
+                HorizontalOptions="FillAndExpand"
                 Clicked="OnButtonRoundUpClicked"/>
 
+            </HorizontalStackLayout>
         </VerticalStackLayout>
     </ScrollView>
 
